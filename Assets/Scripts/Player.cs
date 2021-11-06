@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     {
         if (coll.gameObject.tag == "Cart")
         {
-            GameController.GetComponent<GameController>().cartHolding += holding;
+            GameController.GetComponent<GameController>().addSunDrops(holding);
             holding = 0;
         }
 
