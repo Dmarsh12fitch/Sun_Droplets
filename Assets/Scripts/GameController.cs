@@ -37,6 +37,6 @@ public class GameController : MonoBehaviour
     public void addSunDrops(float drops)
     {
         cartHolding += drops;
-        cartFill.GetComponent<Image>().fillAmount = cartHolding / 30;
+        cartFill.GetComponent<Image>().fillAmount = cartHolding / cartCap;
     }
 }

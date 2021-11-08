@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce94d1d2795f5d34181620440bba25df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cartCap: 10
+  cartCap: 20
   cartHolding: 0
   minDelay: 1
   maxDelay: 2
@@ -550,7 +550,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
 --- !u!1 &738560703
 GameObject:
