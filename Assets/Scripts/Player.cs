@@ -8,16 +8,19 @@ public class Player : MonoBehaviour
     public float holding = 0;
     public float holdingCap = 3;
     public GameObject GameController;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         GameController = GameObject.FindGameObjectWithTag("GameController").gameObject;
+        animator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (holding > holdingCap) { holding = holdingCap; }
+        if (holding > holdingCap){ holding = holdingCap; }
+        
     }
 
     void FixedUpdate()
@@ -26,10 +29,12 @@ public class Player : MonoBehaviour
         {
             if (Camera.main.ScreenToWorldPoint((Vector2)Input.mousePosition).x > 0)
             {
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
                 this.transform.position = new Vector2(this.transform.position.x + speed, this.transform.position.y);
             }
             else
             {
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
                 this.transform.position = new Vector2(this.transform.position.x - speed, this.transform.position.y);
             }
         }
@@ -42,12 +47,17 @@ public class Player : MonoBehaviour
         {
             GameController.GetComponent<GameController>().addSunDrops(holding);
             holding = 0;
+            animator.SetBool("full", false);
         }
 
         if (coll.gameObject.tag == "Rain")
         {
             Destroy(coll.gameObject);
             holding += 1;
+            if(holding >= holdingCap)
+            {
+                animator.SetBool("full", true);
+            }
         }
     }
 }

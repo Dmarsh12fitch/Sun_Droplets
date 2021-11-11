@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public float cartCap = 30;
+    public float cartCap = 20;
     public float cartHolding = 0;
     public float minDelay = 1;
     public float maxDelay = 2;
@@ -37,6 +37,12 @@ public class GameController : MonoBehaviour
     public void addSunDrops(float drops)
     {
         cartHolding += drops;
+<<<<<<< Updated upstream
         cartFill.GetComponent<Image>().fillAmount = cartHolding / cartCap;
     }
 }
+=======
+        cartFill.GetComponent<Image>().fillAmount = cartHolding / 20;
+    }
+}
+>>>>>>> Stashed changes
